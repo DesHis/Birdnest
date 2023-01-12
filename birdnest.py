@@ -4,6 +4,8 @@ import math
 import json 
 import time
 
+import os
+
 
 violators=[]
 while True:
@@ -60,7 +62,12 @@ while True:
         recentViolators+="<br>"
 
     site = open("~/templates/index.html", "w")
-    print("write to file templates/index.html")
+
+    directory = os.getcwd()
+    print("DIRECTORY: "+directory)
+    print("does the chungus exist?? "os.path.exists("templates/index.html"))
+
+    
     site.write(site1+recentViolators+site2)
     site.close
 
