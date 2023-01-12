@@ -10,7 +10,3 @@ if __name__ == '__main__':
         app.run(debug=True, threaded=True, port=5000)
 
 
-while True:
-    asdf= open('/app/templates/index.html', 'r')
-    print("CONTENT OF HTML:" + str(asdf.read()) )
-    asdf.close
