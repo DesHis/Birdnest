@@ -67,7 +67,7 @@ while True:
 
 
     log = open("/path/to/my/file.txt", "r").read()
-    print("content of site: "str(log))
+    print("content of site: "+str(log))
     log.close
 
 

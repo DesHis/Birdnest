@@ -1,11 +1,11 @@
 from flask import Flask, render_template
 import os
 
+print("THE DIRECTORY "+str(os.getcwd()))
 
 app = Flask(__name__,)
 @app.route('/')
 def index():
-    print(os.getcwd())
     return render_template('index.html')
 
 
