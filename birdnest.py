@@ -51,8 +51,9 @@ while True:
 
     for pilotInfo in violators:
 
-        if(time.time()-pilotInfo[4]>600): #remove if older than 10 minutes 
+        if(time.time()-pilotInfo[4]>10): #remove if older than 10 minutes 
             violators.remove(pilotInfo) 
+            print("removed someone")
         recentViolators+=str(int(time.time()-pilotInfo[4]))+" SECONDS AGO "
         for i in range(4):
             recentViolators+=str(pilotInfo[i])+" "
