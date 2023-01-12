@@ -65,11 +65,6 @@ while True:
     print("write to file")
     site.close
 
-    """
-    asdf= open('/app/templates/index.html', 'r')
-    print("CONTENT OF HTML:" + str(asdf.read()) )
-    asdf.close
-    """
     print("eepy")
     #since the XML data is updated every 2 seconds, we can sleep to avoid spamming the server with unnecessary requests 
     time.sleep(2)
