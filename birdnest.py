@@ -59,6 +59,7 @@ while True:
         recentViolators+="<br>"
 
     site = open("templates/index.html", "w")
+    print("write to file templates/index.html")
     site.write(site1+recentViolators+site2)
     site.close
 
