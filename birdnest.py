@@ -68,8 +68,6 @@ while True:
 
     log = open("templates/index.html", "r").read()
     print("content of site: "+str(log))
-    log.close
-
 
 
     print("eepy")
