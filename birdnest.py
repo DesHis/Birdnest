@@ -65,10 +65,7 @@ while True:
 
     site = open("templates/index.html", "w")
     site.write(site1+recentViolators+site2)
-    print("written to file")
     site.close
 
-
-    print("eepy")
     #since the XML data is updated every 2 seconds, we can sleep to avoid spamming the server with unnecessary requests 
     time.sleep(2)
