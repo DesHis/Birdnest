@@ -4,8 +4,6 @@ import math
 import json 
 import time
 
-import os
-
 
 violators=[]
 while True:
@@ -61,12 +59,7 @@ while True:
         recentViolators+="closest distance: "+str(int(pilotInfo[5])/1000)+" meters "
         recentViolators+="<br>"
 
-    site = open("templates/index.html", "w")
-
-    directory = os.getcwd()
-    print("DIRECTORY: "+directory)
-    print("does the chungus exist?? "+str(os.path.exists("templates/index.html")))
-
+    site = open("/app/templates/index.html", "w")
 
     site.write(site1+recentViolators+site2)
     site.close
