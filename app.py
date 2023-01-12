@@ -1,14 +1,10 @@
 from flask import Flask, render_template
 
 
-while True:
-    try:
-        app = Flask(__name__)
-        @app.route('/')
-        def index():
-            return render_template('/app/templates/index.html')
+app = Flask(__name__, template_folder="/app/templates")
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-        if __name__ == '__main__':
-                app.run(debug=True, threaded=True, port=5000)
-    except:
-        print("epic fail")
+if __name__ == '__main__':
+        app.run(debug=True, threaded=True, port=5000)
