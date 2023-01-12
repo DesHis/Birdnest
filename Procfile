@@ -1,1 +1,1 @@
-web: gunicorn app:server & python birdnest.py & wait -n
+web: gunicorn app:app & python birdnest.py & wait -n
