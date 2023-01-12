@@ -8,6 +8,9 @@ import time
 violators=[]
 while True:
 
+    log = open("templates/index.html", "r").read()
+    print("content of site: "+str(log))
+
 
     #get data from GET request and parse into tree
     response = requests.get("http://assignments.reaktor.com/birdnest/drones")
@@ -60,14 +63,10 @@ while True:
         recentViolators+="closest distance: "+str(int(pilotInfo[5])/1000)+" meters "
         recentViolators+="<br>"
 
-    site = open("/app/templates/index.html", "w")
+    site = open("templates/index.html", "w")
     site.write(site1+recentViolators+site2)
     print("written to file")
     site.close
-
-
-    log = open("templates/index.html", "r").read()
-    print("content of site: "+str(log))
 
 
     print("eepy")
