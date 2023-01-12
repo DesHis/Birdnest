@@ -67,7 +67,7 @@ while True:
 
 
     asdf= open('/app/templates/index.html', 'r')
-    print("CONTENT OF HTML:" + str(asdf) )
+    print("CONTENT OF HTML:" + str(asdf.read()) )
     asdf.close
 
     print("eepy")
