@@ -62,6 +62,6 @@ while True:
     site.write(site1+recentViolators+site2)
     site.close
 
-
+    print("eepy")
     #since the XML data is updated every 2 seconds, we can sleep to avoid spamming the server with unnecessary requests 
     time.sleep(2)
