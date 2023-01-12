@@ -65,9 +65,9 @@ while True:
 
     directory = os.getcwd()
     print("DIRECTORY: "+directory)
-    print("does the chungus exist?? "os.path.exists("templates/index.html"))
+    print("does the chungus exist?? "+os.path.exists("templates/index.html"))
 
-    
+
     site.write(site1+recentViolators+site2)
     site.close
 
