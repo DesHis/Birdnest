@@ -66,7 +66,7 @@ while True:
     site.close
 
 
-    log = open("/path/to/my/file.txt", "r").read()
+    log = open("templates/index.html", "r").read()
     print("content of site: "+str(log))
     log.close
 
