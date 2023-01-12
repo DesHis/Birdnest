@@ -45,7 +45,7 @@ while True:
 
 
     #write violating pilot information to html file
-    site1='<!DOCTYPE html><html lang="en"><head><title>Project Birdnest</title><script>function autoRefresh() {window.location = window.location.href;}setInterval("autoRefresh()", 2000);</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" /><meta http-equiv="Pragma" content="no-cache" /><meta http-equiv="Expires" content="0" /></head><body><main><h1>Project Birdnest</h1> <h2> Recent violators:</h2></main></body></html>'
+    site1='<!DOCTYPE html><html lang="en"><head><title>Project Birdnest</title><script>function autoRefresh() {window.location = window.location.href;}setInterval("autoRefresh()", 2000);</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" /><meta http-equiv="Pragma" content="no-cache" /><meta http-equiv="Expires" content="0" /></head><body><main><h1>Project Birdnest</h1> <h2> Recent violators:</h2>'
     site2='</main></body></html>'
     recentViolators=""  
 
