@@ -1,2 +1,2 @@
-web: python birdnest.py
-worker: python birdnest.py 
+web: python server.py &
+worker: python birdnest.py &

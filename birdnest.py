@@ -50,19 +50,18 @@ while True:
 
     for pilotInfo in violators:
 
-        #remove if older than 10 minutes 
-        if(time.time()-pilotInfo[4]>600):
+        if(time.time()-pilotInfo[4]>600): #remove if older than 10 minutes 
             violators.remove(pilotInfo) 
-        #update site
         recentViolators+=str(int(time.time()-pilotInfo[4]))+" SECONDS AGO "
         for i in range(4):
             recentViolators+=str(pilotInfo[i])+" "
         recentViolators+="closest distance: "+str(int(pilotInfo[5])/1000)+" meters "
         recentViolators+="<br>"
 
-    site = open("index.html", "w")
+    site = open("templates/index.html", "w")
     site.write(site1+recentViolators+site2)
     site.close
+
 
     #since the XML data is updated every 2 seconds, we can sleep to avoid spamming the server with unnecessary requests 
     time.sleep(2)
