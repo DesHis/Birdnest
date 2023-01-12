@@ -30,7 +30,7 @@ while True:
                 violatorResponse = requests.get("http://assignments.reaktor.com/birdnest/pilots/"+serialNumber)
                 violatorData=json.loads(violatorResponse.content)
                 pilotInfo=[violatorData["firstName"], violatorData["lastName"], violatorData["email"], violatorData["phoneNumber"], time.time(), distanceFromNest, serialNumber]
-
+                print(violatorData["firstName"])
                 for v in violators: #check if pilot has violated before
                     if(v[6]==serialNumber):
                         if(distanceFromNest<=v[5]): #update closest distance 
@@ -38,6 +38,7 @@ while True:
                         AlreadyAdded=True
                 if(not AlreadyAdded):
                     violators.insert(0, pilotInfo)
+                    print("added new violator")
 
             except:
                 print("404 error")
