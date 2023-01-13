@@ -4,7 +4,7 @@ app = Flask(__name__,)
 @app.route('/')
 def index():
     page = open("templates/index.html", "r")
-    content = str(page.read())
+    content = page.read()
     page.close()
     return content
 
