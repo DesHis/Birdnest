@@ -1,1 +1,1 @@
-worker: python launch.py
+web: python launch.py
