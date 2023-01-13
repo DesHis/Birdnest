@@ -1,5 +1,7 @@
 from flask import Flask
 
+print("launchd")
+
 app = Flask(__name__,)
 @app.route('/')
 def index():
