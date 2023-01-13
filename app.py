@@ -7,5 +7,7 @@ def index():
 
 
 if __name__ == '__main__':
-        app.run(debug=True, threaded=True, port=5000,)
-        app.config['TEMPLATES_AUTO_RELOAD'] = True
+        app.jinja_env.auto_reload = True
+        app.config["TEMPLATES_AUTO_RELOAD"] = True
+        app.config["FLASK_RUN_EXTRA_FILES"] = True
+        app.run(debug=True, threaded=True, port=5000)
