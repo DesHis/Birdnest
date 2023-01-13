@@ -4,9 +4,9 @@ app = Flask(__name__,)
 @app.route('/')
 def index():
     page = open("templates/index.html", "r")
-    content = page.read()
+    content = str(page.read())
     page.close()
-    return str(open("templates/index.html", "r"))
+    return content
 
 
 if __name__ == '__main__':
