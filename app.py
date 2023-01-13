@@ -1,11 +1,11 @@
 from flask import Flask
 
-
 chungus=0
 
 app = Flask(__name__,)
 @app.route('/')
 def index():
+    global chungus
     page = open("templates/index.html", "r")
     content = page.read()
     page.close()
