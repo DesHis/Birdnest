@@ -6,7 +6,7 @@ def index():
     page = open("templates/index.html", "r")
     content = page.read()
     page.close()
-    print(content)
+    print("this cuh so "+content)
     return content
 
 

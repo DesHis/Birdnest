@@ -62,6 +62,7 @@ while True:
 
     site = open("templates/index.html", "w")
     site.write(site1+recentViolators+site2)
+    print("UPDATED SITE TO BE "+site1+recentViolators+site2)
     site.close
 
     #since the XML data is updated every 2 seconds, we can sleep to avoid spamming the server with unnecessary requests 
