@@ -1,4 +1,4 @@
-worker: python launch.py
+worker: python birdnest.py
 web: gunicorn app:app 
 
 
