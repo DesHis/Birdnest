@@ -3,7 +3,7 @@ from flask import Flask
 app = Flask(__name__,)
 @app.route('/')
 def index():
-    page = open("templates/index.html", "r")
+    page = open("index.html", "r")
     content = page.read()
     page.close()
     print("this cuh so "+content)

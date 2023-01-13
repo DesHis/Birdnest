@@ -60,7 +60,7 @@ while True:
         recentViolators+="closest distance: "+str(int(pilotInfo[5])/1000)+" meters "
         recentViolators+="<br>"
 
-    site = open("templates/index.html", "w")
+    site = open("index.html", "w")
     site.write(site1+recentViolators+site2)
     print("UPDATED SITE TO BE "+site1+recentViolators+site2)
     site.close
