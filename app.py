@@ -10,7 +10,7 @@ def index():
     content = page.read()
     page.close()
     chungus+=1
-    return chungus
+    return str(chungus)
 
 
 if __name__ == '__main__':
