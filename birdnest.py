@@ -8,8 +8,8 @@ import time
 violators=[]
 while True:
 
-    log = open("templates/index.html", "r").read()
-    print("content of site: "+str(log))
+    """log = open("templates/index.html", "r").read()
+    print("content of site: "+str(log))"""
 
 
     #get data from GET request and parse into tree
@@ -33,7 +33,6 @@ while True:
                 violatorResponse = requests.get("http://assignments.reaktor.com/birdnest/pilots/"+serialNumber)
                 violatorData=json.loads(violatorResponse.content)
                 pilotInfo=[violatorData["firstName"], violatorData["lastName"], violatorData["email"], violatorData["phoneNumber"], time.time(), distanceFromNest, serialNumber]
-                print(violatorData["firstName"])
                 for v in violators: #check if pilot has violated before
                     if(v[6]==serialNumber):
                         if(distanceFromNest<=v[5]): #update closest distance 
@@ -41,7 +40,6 @@ while True:
                         AlreadyAdded=True
                 if(not AlreadyAdded):
                     violators.insert(0, pilotInfo)
-                    print("added new violator")
 
             except:
                 print("404 error")
@@ -54,9 +52,8 @@ while True:
 
     for pilotInfo in violators:
 
-        if(time.time()-pilotInfo[4]>10): #remove if older than 10 minutes 
+        if(time.time()-pilotInfo[4]>600): #remove if older than 10 minutes 
             violators.remove(pilotInfo) 
-            print("removed someone")
         recentViolators+=str(int(time.time()-pilotInfo[4]))+" SECONDS AGO "
         for i in range(4):
             recentViolators+=str(pilotInfo[i])+" "
