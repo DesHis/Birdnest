@@ -7,10 +7,7 @@ import time
 
 violators=[]
 while True:
-
-    """log = open("templates/index.html", "r").read()
-    print("content of site: "+str(log))"""
-
+    print("asdasd")
 
     #get data from GET request and parse into tree
     response = requests.get("http://assignments.reaktor.com/birdnest/drones")
@@ -40,6 +37,7 @@ while True:
                         AlreadyAdded=True
                 if(not AlreadyAdded):
                     violators.insert(0, pilotInfo)
+                    print("the violator")
 
             except:
                 print("404 error")
@@ -60,9 +58,8 @@ while True:
         recentViolators+="closest distance: "+str(int(pilotInfo[5])/1000)+" meters "
         recentViolators+="<br>"
 
-    site = open("index.html", "w")
+    site = open("templates/index.html", "w")
     site.write(site1+recentViolators+site2)
-    print("UPDATED SITE TO BE "+site1+recentViolators+site2)
     site.close
 
     #since the XML data is updated every 2 seconds, we can sleep to avoid spamming the server with unnecessary requests 

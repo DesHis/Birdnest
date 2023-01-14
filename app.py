@@ -1,14 +1,22 @@
-from flask import Flask
+from flask import Flask, render_template
+import subprocess
+import threading
+
+
+def runBirdnest():
+    subprocess.call(['python', 'birdnest.py'])
 
 app = Flask(__name__,)
 @app.route('/')
 def index():
-    page = open("index.html", "r")
+    page = open("templates/index.html", "r")
     content = page.read()
     page.close()
-    print("this cuh so "+content)
+    #return render_template("index.html")
     return content
 
 
 if __name__ == '__main__':
-        app.run(threaded=True, port=5000)
+    thread=threading.Thread(target=runBirdnest)
+    thread.start()
+    app.run(threaded=True, port=5000)
