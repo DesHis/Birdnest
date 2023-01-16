@@ -3,9 +3,10 @@ import xml.etree.ElementTree as ElementTree
 import math
 import json
 import time
-
+import os
 
 violators=[]
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
 while True:
     #get data from GET request and parse into tree
@@ -38,12 +39,8 @@ while True:
             except:
                 print("404 error")
 
-
-    #write violating pilot information to html file
-    site1='<!DOCTYPE html><html lang="en"><head><title>Project Birdnest</title><script>function autoRefresh() {window.location = window.location.href;}setInterval("autoRefresh()", 2000);</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" /><meta http-equiv="Pragma" content="no-cache" /><meta http-equiv="Expires" content="0" /></head><body><main><h1>Project Birdnest</h1> <h2> Recent violators:</h2>'
-    site2='</main></body></html>'
+    #write violating pilot information a json file
     recentViolators=""
-
     for pilotInfo in violators:
         if(time.time()-pilotInfo[4]>600): #remove if older than 10 minutes
             violators.remove(pilotInfo)
@@ -53,9 +50,9 @@ while True:
         recentViolators+="closest distance: "+str(int(pilotInfo[5])/1000)+" meters "
         recentViolators+="<br>"
 
-    site = open("/home/deshis/Birdnest/index.html", "w") #pythonanywhere doesnt like relative paths for some reason
-    site.write(site1+recentViolators+site2)
-    site.close
+    json_object=json.dumps(recentViolators)
+    with open(dir_path+"/violators.json", "w") as outfile:
+        outfile.write(json_object)
 
     #since the XML data is updated every 2 seconds, we can sleep to avoid spamming the server with unnecessary requests
     time.sleep(2)

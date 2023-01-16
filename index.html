@@ -1,1 +1,39 @@
-<!DOCTYPE html><html lang="en"><head><title>Project Birdnest</title><script>function autoRefresh() {window.location = window.location.href;}setInterval("autoRefresh()", 2000);</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" /><meta http-equiv="Pragma" content="no-cache" /><meta http-equiv="Expires" content="0" /></head><body><main><h1>Project Birdnest</h1> <h2> Recent violators:</h2></main></body></html>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Project Birdnest</title>
+        <script>
+
+        function autoRefresh(){
+            var request = new XMLHttpRequest();
+            request.open('GET', 'http://deshis.eu.pythonanywhere.com/violators', true);
+            request.onload = function() {
+                if (request.status >= 200 && request.status < 400) {
+                    var data = JSON.parse(request.responseText);
+                    document.getElementById("data").innerHTML=data;
+                } else {
+                    console.log("server returned an error")
+                }
+            };
+            request.onerror = function() {
+                console.log("connection error")
+            };
+            request.send();
+        }
+
+        autoRefresh()
+        setInterval(autoRefresh, 2000);
+
+        </script>
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+    </head>
+    <body>
+        <main>
+            <h1>Project Birdnest</h1>
+            <h2>Recent violators:</h2>
+            <div id="data"></div>
+        </main>
+    </body>
+</html>
